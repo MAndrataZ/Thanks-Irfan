@@ -22,7 +22,7 @@ export function hero(dosen) {
       <div class="spektrum" aria-hidden="true">${titik}</div>
       <h1 class="hero__title">
         Terima kasih,<br />
-        <span class="hero__sapaan">Irfan Maliki, S.T., M.T., CITPM</span>
+        <span class="hero__sapaan">Irfan Maliki, S.T., M.T., CITPM.</span>
       </h1>
       <p class="hero__subtitle">Dari kami, anak bimbingan yang akhirnya sampai di garis finish</p>
       <p class="hero__date">Skripsi · ${dosen.tanggalYudisium}</p>
