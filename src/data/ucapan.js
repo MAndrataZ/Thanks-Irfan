@@ -1,0 +1,90 @@
+export const dosen = {
+  nama: "Nama Dosen Pembimbing",
+  tanggalYudisium: "DD Bulan YYYY",
+  angkatan: "Angkatan 20XX",
+  fotoBersama: "", // opsional, nama file di public/foto, mis. "bersama.jpg"
+};
+
+// foto: isi nama file yang ada di public/foto (mis. "john.jpg"). Kosong = tampil inisial.
+export const ucapan = [
+  {
+    id: 1,
+    nama: "Muhammad Andrata Zharfan Mustika",
+    nim: "10122250",
+    judulSkripsi: "Implementasi Retrieval-Augmented Generation Menggunakan Generator Qwen 2.5 7B Instruct Pada Sistem Tanya",
+    pesan: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    foto: "atta.jpeg",
+  },
+  {
+    id: 2,
+    nama: "Syahrial Usman Farahani",
+    nim: "10122369",
+    judulSkripsi: "KLASIFIKASI DEEPFAKE BERDASARKAN CITRA WAJAH MENGGUNAKAN FINE-TUNING PADA MODEL CONVNEXT-TINY",
+    pesan: "Terima pakk, atas bimbingan, bantuannya, energinya, tenaganya selama satu tahun ini, Terima atas bekal yg bapak berikan yang pasti akan berguna untuk masa depan saya, terimakasih sudah selalu sabar untuk membimbing perjalanan saya🙏",
+    foto: "Zuzu.png",
+  },
+  {
+    id: 3,
+    nama: "Panji Wijaya",
+    nim: "10122409",
+    judulSkripsi: "KLASIFIKASI JENIS BAKTERI PATOGEN PADA CITRA MIKROSKOPIS MENGGUNAKAN CONVOLUTIONAL NEURAL NETWORK DENGAN ARSITEKTUR RESNET-50",
+    pesan: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    foto: "panji.jpeg",
+  },
+  {
+    id: 4,
+    nama: "Muhammad Farid Nurrahman",
+    nim: "10122256",
+    judulSkripsi: "Klasifikasi Penyakit Daun Kopi Robusta Menggunakan Deep Learning ConvNeXt",
+    pesan: "Aku berterimakasih yang sebesar besarnya buat bapak karna udah ngembimbing, ngasih masukkan, saran, dan udah ngajarin banyak hal. Aku juga minta maaf karna banyak banget kesalahan selama ngerjain skripsi, apalagi saat seminar dan sidang. Dan terimakasih udah mempermudah aku dalam proses skrispi dari awal sampai selesai.",
+    foto: "parit.jpeg",
+  },
+  {
+    id: 5,
+    nama: "Joe Bloggs",
+    nim: "10122005",
+    judulSkripsi: "Deteksi Objek pada Citra Satelit Menggunakan YOLO",
+    pesan: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    foto: "",
+  },
+  {
+    id: 6,
+    nama: "Jan Kowalski",
+    nim: "10122006",
+    judulSkripsi: "Pengembangan Chatbot Berbasis Retrieval-Augmented Generation",
+    pesan: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    foto: "",
+  },
+  {
+    id: 7,
+    nama: "Erika Mustermann",
+    nim: "10122007",
+    judulSkripsi: "Perbandingan Algoritma SVM dan Random Forest untuk Analisis Sentimen Ulasan Produk",
+    pesan: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    foto: "",
+  },
+  {
+    id: 8,
+    nama: "Max Mustermann",
+    nim: "10122008",
+    judulSkripsi: "Segmentasi Citra Medis Menggunakan Arsitektur U-Net",
+    pesan: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    foto: "",
+  },
+  {
+    id: 9,
+    nama: "Pierre Dupont",
+    nim: "10122009",
+    judulSkripsi: "Evaluasi Kinerja Model Bahasa Besar pada Tugas Peringkasan Teks Berbahasa Indonesia",
+    pesan: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    foto: "",
+  },
+  {
+    id: 10,
+    nama: "Maria Silva",
+    nim: "10122010",
+    judulSkripsi: "Analisis Sentimen Berbasis Aspek pada Ulasan Layanan Transportasi Daring",
+    pesan: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    foto: "",
+  },
+];

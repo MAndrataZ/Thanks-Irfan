@@ -1,0 +1,418 @@
+/* ========== Variabel ========== */
+:root {
+  --bg: #faf6ee;
+  --card: #ffffff;
+  --text: #1c2541;
+  --text-muted: #5b6482;
+  --accent-cool: #3a6ea5;
+  --accent-warm: #e0a23b;
+  --gradient: linear-gradient(90deg, var(--accent-cool), var(--accent-warm));
+
+  --font-serif-title: "Playfair Display", Georgia, serif;
+  --font-serif-body: "Lora", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+/* ========== Dasar ========== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-serif-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+section {
+  scroll-margin-top: 0;
+}
+
+/* ========== Reveal on scroll ========== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ========== Progress bar ========== */
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  z-index: 50;
+  background: rgba(28, 37, 65, 0.06);
+}
+
+.progress__bar {
+  height: 100%;
+  width: 0;
+  background: var(--gradient);
+}
+
+.progress__label {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 50;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--text-muted);
+  font: 600 0.75rem/1 var(--font-sans);
+  box-shadow: 0 2px 8px rgba(28, 37, 65, 0.12);
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.progress__label.show {
+  opacity: 1;
+}
+
+/* ========== Navigasi titik ========== */
+.dotnav {
+  position: fixed;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  display: none; /* disembunyikan di layar sempit */
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dotnav a {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(28, 37, 65, 0.2);
+  transition: transform 200ms ease, background 200ms ease;
+}
+
+.dotnav a:hover {
+  background: var(--accent-cool);
+}
+
+.dotnav a.active {
+  background: var(--accent-warm);
+  transform: scale(1.5);
+}
+
+@media (min-width: 768px) {
+  .dotnav {
+    display: flex;
+  }
+}
+
+/* ========== Hero ========== */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+
+.hero > * {
+  opacity: 0;
+  animation: fadeUp 900ms ease forwards;
+}
+
+.hero > :nth-child(2) { animation-delay: 150ms; }
+.hero > :nth-child(3) { animation-delay: 300ms; }
+.hero > :nth-child(4) { animation-delay: 450ms; }
+.hero > :nth-child(5) { animation-delay: 700ms; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+.hero__title {
+  font-family: var(--font-serif-title);
+  font-size: clamp(2.2rem, 8vw, 4.2rem);
+  line-height: 1.15;
+  margin: 0 0 1rem;
+}
+
+.hero__subtitle {
+  font-size: clamp(1.05rem, 3vw, 1.35rem);
+  color: var(--text-muted);
+  margin: 0 0 0.5rem;
+}
+
+.hero__date {
+  font: 500 0.9rem var(--font-sans);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.spektrum {
+  display: flex;
+  gap: 10px;
+  margin: 0 0 1.75rem;
+}
+
+.spektrum span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: color-mix(
+    in srgb,
+    var(--accent-cool) calc(100% - var(--i) * 16.66%),
+    var(--accent-warm)
+  );
+}
+
+.hero__scroll {
+  margin-top: 3rem;
+  font: 500 0.85rem var(--font-sans);
+  color: var(--text-muted);
+}
+
+.hero__scroll::after {
+  content: "↓";
+  display: block;
+  font-size: 1.4rem;
+  margin-top: 0.25rem;
+  animation: bounce 1.8s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* ========== Garis pemisah ========== */
+.garis {
+  height: 2px;
+  width: min(220px, 50%);
+  margin: 0 auto;
+  background: var(--gradient);
+  border: 0;
+  border-radius: 2px;
+}
+
+/* ========== Pembuka ========== */
+.opening {
+  min-height: 70svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1.5rem;
+}
+
+.opening p {
+  max-width: 36rem;
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* ========== Kartu ucapan ========== */
+.ucapan {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 1.25rem;
+}
+
+.ucapan__inner {
+  width: 100%;
+  max-width: 62rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+  padding: 2rem 1.5rem;
+  background: var(--card);
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(28, 37, 65, 0.08);
+}
+
+.ucapan__foto {
+  flex-shrink: 0;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ucapan__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ucapan__inisial {
+  color: #fff;
+  font: 700 3rem/1 var(--font-serif-title);
+  text-shadow: 0 1px 4px rgba(28, 37, 65, 0.35);
+}
+
+.ucapan__isi {
+  text-align: center;
+}
+
+.ucapan__nama {
+  font-family: var(--font-serif-title);
+  font-size: clamp(1.7rem, 6vw, 2.3rem);
+  margin: 0;
+  color: var(--text);
+}
+
+.ucapan__nim {
+  font: 500 0.85rem var(--font-sans);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin: 0.35rem 0 0.9rem;
+}
+
+.ucapan__judul {
+  font-style: italic;
+  color: var(--text-muted);
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ucapan__pesan {
+  margin: 0;
+  font-size: 1.1rem; /* ~17.6px */
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .ucapan__inner {
+    flex-direction: row;
+    gap: 3rem;
+    padding: 3rem;
+  }
+
+  .ucapan__foto {
+    width: 220px;
+    height: 220px;
+  }
+
+  .ucapan__inisial {
+    font-size: 4.5rem;
+  }
+
+  .ucapan__isi {
+    text-align: left;
+  }
+
+  .ucapan__pesan {
+    font-size: 1.15rem;
+  }
+
+  .ucapan.reverse .ucapan__inner {
+    flex-direction: row-reverse;
+  }
+}
+
+/* ========== Penutup ========== */
+.closing {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 1.25rem;
+  background: linear-gradient(135deg, var(--accent-cool), var(--accent-warm));
+}
+
+.closing__card {
+  width: 100%;
+  max-width: 40rem;
+  padding: 2.5rem 1.75rem;
+  background: var(--card);
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 16px 48px rgba(28, 37, 65, 0.25);
+}
+
+.closing__title {
+  font-family: var(--font-serif-title);
+  font-size: clamp(1.8rem, 6vw, 2.5rem);
+  margin: 0 0 1rem;
+}
+
+.closing__text {
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin: 0 0 1.5rem;
+}
+
+.closing__foto {
+  width: 100%;
+  border-radius: 16px;
+  margin: 0 0 1.5rem;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.closing__ttd {
+  font: 600 0.9rem var(--font-sans);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.closing__ttd strong {
+  display: block;
+  font: 600 1.15rem var(--font-serif-title);
+  color: var(--text);
+  margin-top: 0.25rem;
+}
+
+/* ========== Reduced motion ========== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .hero > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    animation: none;
+  }
+
+  .hero__scroll::after {
+    animation: none;
+  }
+}
