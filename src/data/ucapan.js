@@ -9,7 +9,7 @@ export const dosen = {
 export const ucapan = [
   {
     id: 1,
-    nama: "Muhammad Andrata Zharfan Mustika",
+    nama: "Muhammad Andrata Zharfan Mustika, S.Kom",
     nim: "10122250",
     judulSkripsi: "Implementasi Retrieval-Augmented Generation Menggunakan Generator Qwen 2.5 7B Instruct Pada Sistem Tanya",
     pesan: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
@@ -17,7 +17,7 @@ export const ucapan = [
   },
   {
     id: 2,
-    nama: "Syahrial Usman Farahani",
+    nama: "Syahrial Usman Farahani, S.Kom",
     nim: "10122369",
     judulSkripsi: "KLASIFIKASI DEEPFAKE BERDASARKAN CITRA WAJAH MENGGUNAKAN FINE-TUNING PADA MODEL CONVNEXT-TINY",
     pesan: "Terima pakk, atas bimbingan, bantuannya, energinya, tenaganya selama satu tahun ini, Terima atas bekal yg bapak berikan yang pasti akan berguna untuk masa depan saya, terimakasih sudah selalu sabar untuk membimbing perjalanan saya🙏",
@@ -25,7 +25,7 @@ export const ucapan = [
   },
   {
     id: 3,
-    nama: "Panji Wijaya",
+    nama: "Panji Wijaya, S.Kom",
     nim: "10122409",
     judulSkripsi: "KLASIFIKASI JENIS BAKTERI PATOGEN PADA CITRA MIKROSKOPIS MENGGUNAKAN CONVOLUTIONAL NEURAL NETWORK DENGAN ARSITEKTUR RESNET-50",
     pesan: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
@@ -33,7 +33,7 @@ export const ucapan = [
   },
   {
     id: 4,
-    nama: "Muhammad Farid Nurrahman",
+    nama: "Muhammad Farid Nurrahman, S.Kom",
     nim: "10122256",
     judulSkripsi: "Klasifikasi Penyakit Daun Kopi Robusta Menggunakan Deep Learning ConvNeXt",
     pesan: "Aku berterimakasih yang sebesar besarnya buat bapak karna udah ngembimbing, ngasih masukkan, saran, dan udah ngajarin banyak hal. Aku juga minta maaf karna banyak banget kesalahan selama ngerjain skripsi, apalagi saat seminar dan sidang. Dan terimakasih udah mempermudah aku dalam proses skrispi dari awal sampai selesai.",
@@ -41,11 +41,11 @@ export const ucapan = [
   },
   {
     id: 5,
-    nama: "Joe Bloggs",
-    nim: "10122005",
-    judulSkripsi: "Deteksi Objek pada Citra Satelit Menggunakan YOLO",
-    pesan: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-    foto: "",
+    nama: "Ganesha Duta Hanura, S.Kom",
+    nim: "10122423",
+    judulSkripsi: "Klasifikasi Panyakit Jantung Berbasis Sosiologi-Demografi dan Hipertensi menggunakan Weight of Evidence dan XGBoost di Jawa Barat",
+    pesan: "Terimakasih kasih pak atas waktu dan usaha bapak selama setahun terakhir ini, karena bapak saya bisa  menyelesaikan skripsi ini dengan baik, sempat ada masa-masa down sewaktu proposal, tapi karena pesan bapak yang jangan menyerah saya jadi bisa terus melanjutkan sampai akhir, sekali lagi terima kasih untuk semuanya",
+    foto: "ganesh.jpeg",
   },
   {
     id: 6,
