@@ -12,12 +12,12 @@ export function closing(dosen) {
         ${fotoBersama}
         <p class="closing__text">
           Terima kasih atas ilmu, waktu, dan kesabaran yang telah diberikan.
-          Semoga kebaikan Bapak/Ibu dibalas berlipat, dan semoga kami dapat
+          Semoga kebaikan Bapak dibalas berlipat, dan semoga kami dapat
           menjadi kebanggaan di mana pun kami melangkah.
         </p>
         <p class="closing__ttd">
           Hormat kami,
-          <strong>Anak Bimbingan ${dosen.angkatan}</strong>
+          <strong>Anak Bimbingan Irfan Maliki ${dosen.angkatan}</strong>
         </p>
       </div>
     </section>
