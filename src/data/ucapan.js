@@ -13,7 +13,7 @@ export const ucapan = [
     nama: "Muhammad Andrata Zharfan Mustika, S.Kom",
     nim: "10122250",
     judulSkripsi: "Implementasi Retrieval-Augmented Generation (RAG) Dengan Generator Qwen 2.5 7B Instruct Pada Sistem Tanya Jawab Stunting",
-    pesan: "Semua berawal dari istilah \"LLM\" yang pertama kali saya dengar di kelas Rekayasa Fitur bersama Bapak, dan kini tema itu mengantar saya menyelesaikan skripsi hingga bergelar sarjana. Terima kasih banyak, Pak, atas ilmu, arahan, dan bimbingannya selama ini. Meski kadang ketar-ketir setiap habis bimbingan, dari situ saya belajar banyak, baik soal teknis, non-teknis, bahkan mental. Doakan saya sukses di jenjang berikutnya ya, Pak. Semangat juga untuk Bapak ditengah gempuran membagi waktu antara mengajar, membimbing, dan mengerjakan proyek!",
+    pesan: "Semua berawal dari mendengar istilah \"LLM\" yang pertama kali saya dengar di kelas Rekayasa Fitur bersama Bapak, dan kini tema itu mengantar saya menyelesaikan skripsi hingga bergelar sarjana. Terima kasih banyak, Pak, atas ilmu, arahan, dan bimbingannya selama ini. Meski kadang ketar-ketir setiap habis bimbingan, dari situ saya belajar banyak, baik soal teknis, non-teknis, bahkan mental. Doakan saya sukses di jenjang berikutnya ya, Pak. Semangat juga untuk Bapak ditengah gempuran membagi waktu antara mengajar, membimbing, dan mengerjakan proyek!",
     foto: "atta.jpeg",
   },
   {
@@ -29,7 +29,7 @@ export const ucapan = [
     nama: "Panji Wijaya, S.Kom",
     nim: "10122409",
     judulSkripsi: "Klasifikasi Jenis Bakteri Patojen Pada Citra Mikroskopis Menggunakan Convolutional Neural Network Dengan Arsitektur ResNet-50",
-    pesan: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    pesan: "Pak Irfan, saya haturkan terima kasih banyak atas semua hal yang selalu Bapak usahakan dan berikan untuk saya selama proses bimbingan ini. Saya merasa benar-benar terbimbing selama menjadi anak bimbingan Bapak. Walaupun mungkin judul dan hasil yang saya capai masih belum seperti yang diharapkan, dari proses ini saya justru banyak belajar, terutama untuk memahami kesalahan dan kekurangan yang saya buat dan bagaimana saya bisa terus memperbaikinya. Saya berharap semua yang saya dapat selama menjadi anak bimbingan Bapak bisa menjadi pengalaman yang baik dan berharga untuk saya ke depannya. Semoga setiap langkah yang saya ambil nanti juga tidak lepas dari pembekalan dan ilmu yang sudah Bapak berikan. Sekali lagi, terima kasih banyak, Pak, atas waktu, kesabaran, arahan, dan semua hal baik yang Bapak berikan selama perjalanan ini. Saya sangat bersyukur pernah menjadi salah satu anak bimbingan Bapak, dan semoga apa yang Bapak ajarkan bisa terus saya bawa dalam perjalanan saya ke depannya. Semoga segala doa baik selalu menyertai Bapak di mana pun Bapak berada. Sehat selalu, Pak Irfan.",
     foto: "panji.jpeg",
   },
   {
@@ -84,8 +84,8 @@ export const ucapan = [
     id: 10,
     nama: "Irfan Arfiansyah, S.Kom",
     nim: "10122393",
-    judulSkripsi: "-",
-    pesan: "-",
-    foto: "",
+    judulSkripsi: "Analisis Sentimen Berbasis Aspek pada Ulasan Game Magic Chess: Go Go dengan Fine-Tuned IndoBERT",
+    pesan: "Terima kasih banyak, Pak Irfan, atas waktu, arahan, dan kesabaran Bapak selama membimbing saya. Setiap koreksi dan masukan dari Bapak membuat skripsi ini jauh lebih baik dari yang saya bayangkan. Mohon maaf apabila selama bimbingan saya pernah melakukan kesalahan atau merepotkan. Semoga Bapak selalu diberi kesehatan dan kebaikan Bapak dibalas berlipat ganda.",
+    foto: "irfan.jpeg",
   },
 ];
