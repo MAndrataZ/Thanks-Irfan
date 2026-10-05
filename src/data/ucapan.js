@@ -4,6 +4,7 @@ export const dosen = {
   tanggalYudisium: "2025-2026",
   angkatan: "Angkatan 2025-2026",
   foto: "irfanmaliki.png",
+  musik: "latar.mp3", // nama file di public/musik; kosongkan "" untuk menyembunyikan tombol
   fotoBersama: "",
 };
 

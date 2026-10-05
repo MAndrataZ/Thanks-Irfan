@@ -7,10 +7,12 @@ import { closing, initAmplop } from "./components/closing.js";
 import { progressBar, updateProgress } from "./components/progressBar.js";
 import { dotNav, setActiveDot } from "./components/dotNav.js";
 import { initReveal } from "./utils/reveal.js";
+import { musikToggle, initMusik } from "./components/musik.js";
 
 document.querySelector("#app").innerHTML = `
   ${progressBar()}
   ${dotNav(ucapan)}
+  ${musikToggle(dosen)}
   <main>
     ${hero(dosen)}
     ${opening(dosen)}
@@ -21,6 +23,7 @@ document.querySelector("#app").innerHTML = `
 
 initReveal();
 initAmplop();
+initMusik(dosen);
 
 // ---- Progress bar + titik navigasi aktif ----
 const kartu = document.querySelectorAll(".ucapan");

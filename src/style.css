@@ -23,6 +23,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
 }
 
 body {
@@ -40,6 +41,13 @@ img {
 
 section {
   scroll-margin-top: 0;
+}
+
+.hero,
+.opening,
+.ucapan,
+.closing {
+  scroll-snap-align: start;
 }
 
 /* ========== Reveal on scroll ========== */
@@ -869,11 +877,82 @@ section {
   to { scale: 1; rotate: 0deg; opacity: 1; }
 }
 
+/* ========== Tombol musik ========== */
+.musik {
+  position: fixed;
+  right: calc(16px + env(safe-area-inset-right, 0px));
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  z-index: 45;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--card);
+  color: var(--text);
+  box-shadow: 0 4px 16px rgba(28, 37, 65, 0.25);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 200ms ease, background 200ms ease, color 200ms ease;
+}
+
+.musik[hidden] {
+  display: none;
+}
+
+.musik:hover {
+  transform: scale(1.06);
+}
+
+.musik:focus-visible {
+  outline: 3px solid var(--accent-cool);
+  outline-offset: 3px;
+}
+
+.musik__ikon {
+  width: 22px;
+  height: 22px;
+}
+
+.musik__ikon--nyala {
+  display: none;
+}
+
+.musik.nyala {
+  background: var(--text);
+  color: var(--accent-warm);
+}
+
+.musik.nyala .musik__ikon--mati {
+  display: none;
+}
+
+.musik.nyala .musik__ikon--nyala {
+  display: block;
+}
+
+/* cincin berdenyut sebagai petunjuk, hilang setelah tombol pertama kali diketuk */
+.musik.baru::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--accent-warm);
+  animation: cincin 2s ease-out infinite;
+}
+
+@keyframes cincin {
+  from { transform: scale(1); opacity: 0.9; }
+  to { transform: scale(1.7); opacity: 0; }
+}
+
 /* ========== Reduced motion ========== */
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+    html {
+      scroll-snap-type: none;
+    }
 
   .reveal,
   .hero > * {
