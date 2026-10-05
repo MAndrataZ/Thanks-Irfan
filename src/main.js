@@ -3,7 +3,7 @@ import { dosen, ucapan } from "./data/ucapan.js";
 import { hero } from "./components/hero.js";
 import { opening } from "./components/opening.js";
 import { renderUcapan } from "./components/ucapan.js";
-import { closing } from "./components/closing.js";
+import { closing, initAmplop } from "./components/closing.js";
 import { progressBar, updateProgress } from "./components/progressBar.js";
 import { dotNav, setActiveDot } from "./components/dotNav.js";
 import { initReveal } from "./utils/reveal.js";
@@ -15,11 +15,12 @@ document.querySelector("#app").innerHTML = `
     ${hero(dosen)}
     ${opening(dosen)}
     ${ucapan.map((u, i) => renderUcapan(u, i)).join('<hr class="garis" />')}
-    ${closing(dosen)}
+    ${closing(dosen, ucapan)}
   </main>
 `;
 
 initReveal();
+initAmplop();
 
 // ---- Progress bar + titik navigasi aktif ----
 const kartu = document.querySelectorAll(".ucapan");

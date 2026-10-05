@@ -1,12 +1,12 @@
 export const dosen = {
   nama: "Irfan Maliki, S.T., M.T., CITPM.",
+  sapaan: "Pak Irfan",
   tanggalYudisium: "2025-2026",
   angkatan: "Angkatan 2025-2026",
   foto: "irfanmaliki.png",
-  fotoBersama: "", // opsional, nama file di public/foto, mis. "bersama.jpg"
+  fotoBersama: "",
 };
 
-// foto: isi nama file yang ada di public/foto (mis. "john.jpg"). Kosong = tampil inisial.
 export const ucapan = [
   {
     id: 1,

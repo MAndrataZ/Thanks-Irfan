@@ -11,6 +11,7 @@
   --font-serif-title: "Playfair Display", Georgia, serif;
   --font-serif-body: "Lora", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;
+  --font-script: "Caveat", cursive;
 }
 
 /* ========== Dasar ========== */
@@ -399,55 +400,473 @@ section {
 
 /* ========== Penutup ========== */
 .closing {
+  position: relative;
   min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 3.5rem 1.25rem;
-  background: linear-gradient(135deg, var(--accent-cool), var(--accent-warm));
+  padding: 6rem 1.25rem 5rem;
+  background: linear-gradient(180deg, #1c2541 0%, #3a6ea5 55%, #e0a23b 120%);
+  overflow: hidden;
 }
 
-.closing__card {
+/* transisi halus dari bagian krem di atasnya */
+.closing::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  background: linear-gradient(to bottom, var(--bg), rgba(250, 246, 238, 0));
+  pointer-events: none;
+}
+
+/* cahaya hangat berdenyut di belakang amplop dan surat */
+.closing::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(120vw, 640px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(224, 162, 59, 0.45), rgba(224, 162, 59, 0) 65%);
+  pointer-events: none;
+  animation: cahaya 5s ease-in-out infinite;
+}
+
+@keyframes cahaya {
+  0%, 100% { opacity: 0.7; transform: translate(-50%, -50%) scale(0.95); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
+}
+
+/* ----- Bintang berkelip ----- */
+.closing__bintang {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.bintang {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--s);
+  height: var(--s);
+  background: rgba(255, 255, 255, 0.9);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  animation: kelip 3.6s ease-in-out var(--d) infinite;
+}
+
+.bintang:nth-child(3n) {
+  background: #ffd98a;
+}
+
+@keyframes kelip {
+  0%, 100% { opacity: 0.15; transform: scale(0.6) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(45deg); }
+}
+
+/* amplop dan kartu menumpuk di satu sel, jadi tidak ada loncatan layout */
+.closing__panggung {
+  position: relative;
+  z-index: 1;
+  display: grid;
   width: 100%;
   max-width: 40rem;
-  padding: 2.5rem 1.75rem;
-  background: var(--card);
-  border-radius: 24px;
-  text-align: center;
-  box-shadow: 0 16px 48px rgba(28, 37, 65, 0.25);
+  align-items: center;
+  justify-items: center;
 }
 
-.closing__title {
+.closing__panggung > * {
+  grid-area: 1 / 1;
+}
+
+/* ----- Judul sebelum amplop dibuka ----- */
+.amplop-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.amplop-judul__label {
+  margin: 0 0 0.5rem;
+  font: 600 0.75rem var(--font-sans);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.amplop-judul__teks {
+  margin: 0;
   font-family: var(--font-serif-title);
-  font-size: clamp(1.8rem, 6vw, 2.5rem);
+  font-size: clamp(1.7rem, 6vw, 2.4rem);
+  line-height: 1.2;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(28, 37, 65, 0.4);
+}
+
+/* ----- Amplop ----- */
+.amplop-kotak {
+  margin-top: 8rem; /* ruang untuk tutup dan surat yang naik ke atas */
+  filter: drop-shadow(0 14px 26px rgba(28, 37, 65, 0.35));
+}
+
+.amplop {
+  position: relative;
+  display: block;
+  width: min(320px, 82vw);
+  aspect-ratio: 3 / 2;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  perspective: 900px;
+  animation: getar 3.4s ease-in-out infinite;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.amplop:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 8px;
+}
+
+.amplop > span {
+  position: absolute;
+}
+
+.amplop__belakang {
+  inset: 0;
+  background: #ead7a8;
+}
+
+.amplop__surat {
+  left: 8%;
+  right: 8%;
+  top: 6%;
+  bottom: 6%;
+  z-index: 1;
+  padding: 0.9rem 1rem;
+  background-color: #fff;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0 18px,
+    rgba(58, 110, 165, 0.18) 18px 19px
+  );
+  background-position: 0 2.2rem;
+  border-radius: 3px;
+  font: italic 0.95rem var(--font-serif-body);
+  color: var(--text-muted);
+  text-align: left;
+  transition: transform 800ms cubic-bezier(0.3, 0.7, 0.2, 1) 350ms;
+}
+
+.amplop__depan {
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(160deg, #f9edd0, #f1dfb6);
+  clip-path: polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%);
+}
+
+.amplop__alamat {
+  left: 8%;
+  right: 24%; /* sisakan ruang untuk perangko di kanan */
+  bottom: 12%;
+  z-index: 3;
+  text-align: center;
+  font: 600 clamp(1.1rem, 4.6vw, 1.4rem)/1.15 var(--font-script);
+  color: #6b4e16;
+}
+
+.amplop__perangko {
+  right: 7%;
+  bottom: 10%;
+  z-index: 3;
+  width: 11%;
+  aspect-ratio: 4 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 1.5px rgba(107, 78, 22, 0.35);
+  background: linear-gradient(135deg, var(--accent-cool), var(--accent-warm));
+  color: #fff;
+  font-size: 0.7rem;
+  transform: rotate(4deg);
+}
+
+.amplop__tutup {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 55%;
+  z-index: 3;
+  background: linear-gradient(#efdcb0, #e3cb93);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  transition: transform 700ms ease, z-index 0s 350ms;
+}
+
+.amplop__segel,
+.closing__segel {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #f3c25f, #c98a1a);
+  color: #fff;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 6px rgba(28, 37, 65, 0.35);
+}
+
+.amplop__segel {
+  left: 50%;
+  top: 55%;
+  z-index: 4;
+  transform: translate(-50%, -50%);
+  transition: opacity 300ms ease;
+}
+
+.amplop__petunjuk {
+  margin: 1.5rem 0 0;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  background: rgba(28, 37, 65, 0.8);
+  color: #fff;
+  font: 500 0.9rem var(--font-sans);
+  animation: denyut 2.2s ease-in-out infinite;
+}
+
+/* getar sebentar, lalu diam: isyarat "ketuk aku" */
+@keyframes getar {
+  0%, 55%, 100% { transform: translate(0) rotate(0); }
+  59% { transform: translateX(-4px) rotate(-3deg); }
+  63% { transform: translateX(4px) rotate(3deg); }
+  67% { transform: translateX(-4px) rotate(-3deg); }
+  71% { transform: translateX(4px) rotate(3deg); }
+  75% { transform: translateX(-2px) rotate(-1.5deg); }
+  79% { transform: translateX(2px) rotate(1.5deg); }
+  83% { transform: translate(0) rotate(0); }
+}
+
+@keyframes denyut {
+  0%, 100% { opacity: 0.75; }
+  50% { opacity: 1; }
+}
+
+/* ----- Tahap 1: amplop terbuka ----- */
+.closing.buka .amplop {
+  animation: none;
+  cursor: default;
+}
+
+.closing.buka .amplop__tutup {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+
+.closing.buka .amplop__surat {
+  transform: translateY(-62%);
+}
+
+.closing.buka .amplop__segel,
+.closing.buka .amplop__petunjuk {
+  opacity: 0;
+  animation: none;
+}
+
+/* ----- Tahap 2: amplop pergi, surat muncul ----- */
+.closing.tampil .amplop-wrap {
+  opacity: 0;
+  transform: scale(0.9) translateY(-20px);
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 500ms ease, transform 500ms ease, visibility 0s 500ms;
+}
+
+/* ----- Surat (kartu penutup) ----- */
+.closing__card {
+  position: relative;
+  width: 100%;
+  padding: 3rem 1.75rem 3.5rem;
+  background: #fffdf8;
+  border-radius: 12px 12px 8px 8px;
+  box-shadow: 0 18px 50px rgba(28, 37, 65, 0.35);
+  outline: none;
+  opacity: 0;
+  transform: translateY(40px) scale(0.94);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* pita gradien di tepi atas */
+.closing__card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  border-radius: 12px 12px 0 0;
+  background: var(--gradient);
+}
+
+/* bingkai tipis di dalam kertas */
+.closing__card::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(224, 162, 59, 0.5);
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.closing.tampil .closing__card {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 800ms ease, transform 800ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    visibility 0s;
+}
+
+/* isi surat muncul bertahap */
+.closing.tampil .closing__card > :not(.closing__segel) {
+  animation: fadeUp 700ms ease backwards;
+}
+
+.closing.tampil .closing__card > :nth-child(1) { animation-delay: 300ms; }
+.closing.tampil .closing__card > :nth-child(2) { animation-delay: 420ms; }
+.closing.tampil .closing__card > :nth-child(3) { animation-delay: 540ms; }
+.closing.tampil .closing__card > :nth-child(4) { animation-delay: 660ms; }
+.closing.tampil .closing__card > :nth-child(5) { animation-delay: 780ms; }
+.closing.tampil .closing__card > :nth-child(6) { animation-delay: 900ms; }
+.closing.tampil .closing__card > :nth-child(7) { animation-delay: 1020ms; }
+.closing.tampil .closing__card > :nth-child(8) { animation-delay: 1140ms; }
+
+.closing__card .spektrum {
+  justify-content: center;
   margin: 0 0 1rem;
 }
 
-.closing__text {
-  line-height: 1.8;
-  font-size: 1.1rem;
-  margin: 0 0 1.5rem;
+.closing__label {
+  margin: 0 0 0.5rem;
+  text-align: center;
+  font: 600 0.72rem var(--font-sans);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
-.closing__foto {
-  width: 100%;
-  border-radius: 16px;
+.closing__title {
   margin: 0 0 1.5rem;
-  aspect-ratio: 16 / 10;
+  text-align: center;
+  font-family: var(--font-serif-title);
+  font-size: clamp(1.8rem, 6vw, 2.5rem);
+  line-height: 1.2;
+}
+
+.closing__text {
+  margin: 0 0 1rem;
+  text-align: left;
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+.closing__text--awal::first-letter {
+  float: left;
+  padding: 0.25rem 0.55rem 0 0;
+  font: 700 3.2rem/0.85 var(--font-serif-title);
+  color: var(--accent-cool);
+}
+
+/* foto bersama gaya polaroid */
+.closing__foto {
+  width: min(100%, 340px);
+  margin: 0 auto 1.75rem;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
+  border: 10px solid #fff;
+  border-bottom-width: 30px;
+  border-radius: 3px;
+  box-shadow: 0 8px 22px rgba(28, 37, 65, 0.22);
+  transform: rotate(-1.5deg);
 }
 
 .closing__ttd {
-  font: 600 0.9rem var(--font-sans);
+  margin: 1.5rem 0 1.75rem;
+  text-align: right;
+  font: 500 0.95rem var(--font-sans);
   color: var(--text-muted);
-  margin: 0;
 }
 
 .closing__ttd strong {
   display: block;
-  font: 600 1.15rem var(--font-serif-title);
-  color: var(--text);
-  margin-top: 0.25rem;
+  margin-top: 0.15rem;
+  font: 600 2rem/1.1 var(--font-script);
+  color: var(--accent-cool);
+}
+
+/* deretan avatar anak bimbingan */
+.closing__tim {
+  display: flex;
+  justify-content: center;
+  padding-left: 10px;
+}
+
+.closing__avatar {
+  width: 38px;
+  height: 38px;
+  margin-left: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 2px solid #fffdf8;
+  border-radius: 50%;
+  background: color-mix(
+    in srgb,
+    var(--accent-cool) calc(100% - var(--i) * 11%),
+    var(--accent-warm)
+  );
+  color: #fff;
+  font: 600 0.7rem var(--font-sans);
+  text-shadow: 0 1px 2px rgba(28, 37, 65, 0.6);
+}
+
+.closing__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.closing__tim-ket {
+  margin: 0.75rem 0 0;
+  text-align: center;
+  font: 500 0.8rem var(--font-sans);
+  color: var(--text-muted);
+}
+
+/* segel penutup di tepi bawah surat */
+.closing__segel {
+  position: absolute;
+  left: 50%;
+  bottom: -22px;
+  margin-left: -22px;
+  z-index: 2;
+}
+
+.closing.tampil .closing__segel {
+  animation: cap 600ms cubic-bezier(0.3, 1.6, 0.5, 1) 1.5s backwards;
+}
+
+@keyframes cap {
+  from { scale: 0; rotate: -40deg; opacity: 0; }
+  to { scale: 1; rotate: 0deg; opacity: 1; }
 }
 
 /* ========== Reduced motion ========== */
@@ -462,6 +881,29 @@ section {
     transform: none;
     transition: none;
     animation: none;
+  }
+
+  .amplop,
+  .amplop__petunjuk {
+    animation: none;
+  }
+
+  .amplop__tutup,
+  .amplop__surat,
+  .amplop-wrap,
+  .closing__card {
+    transition: none !important;
+  }
+
+  .bintang,
+  .closing::after,
+  .closing.tampil .closing__card > *,
+  .closing.tampil .closing__segel {
+    animation: none !important;
+  }
+
+  .bintang {
+    opacity: 0.6;
   }
 
   .hero__scroll::after {
