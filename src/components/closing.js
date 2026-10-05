@@ -101,7 +101,7 @@ export function closing(dosen, daftar = []) {
           </p>
           <p class="closing__ttd">
             Hormat kami,
-            <strong>Anak Bimbingan ${dosen.angkatan}</strong>
+            <strong>Anak Bimbingan Irfan Maliki ${dosen.angkatan}</strong>
           </p>
           ${tim}
           <span class="closing__segel" aria-hidden="true">♥</span>
