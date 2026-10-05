@@ -5,7 +5,7 @@ export const dosen = {
   angkatan: "(2025-2026)",
   foto: "irfanmaliki.png",
   musik: "latar.mp3",
-  fotoBersama: "",
+  fotoBersama: "bersama.jpeg",
 };
 
 export const ucapan = [
